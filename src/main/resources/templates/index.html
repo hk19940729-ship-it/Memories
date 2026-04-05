@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <title>フレームメモワール - WEB販売管理画面</title>
   <link rel="stylesheet" href="./buhmsstyle.css" type="text/css">
+  <style>
+    .error-message {
+      color: red;
+      font-size: 0.9em;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +22,8 @@
       <h3>品目マスタ保守</h3>
       <label class="inpulabel">品目コード</label>
       <input type="text" th:field="*{hinCode}" class="inputx12">
-      <input type="submit" formaction="Search" value="検索">
+      <div th:if="${#fields.hasErrors('hinCode')}" th:errors="*{hinCode}" class="error-message"></div>
+      <input type="submit" formaction="/Search" value="検索">
     </div>
 
     <hr>
@@ -23,7 +31,7 @@
     <div class="left1">
       <div class="inputitem">
         <label class="inpulabel">品目区分</label>
-        <input type="text" th:field="*{HINbn}" class="inputx12">
+        <input type="text" th:field="*{hinKbn}" class="inputx12">
       </div>
 
       <div class="inputitem">
@@ -32,14 +40,14 @@
       </div>
 
       <div class="inputitem">
-        <label class="inpulabel"></label>
+        <label class="inpulabel">品名2</label>
         <input type="text" th:field="*{hinName2}" class="inputN20">
       </div>
 
       <div class="inputitem">
         <label class="inpulabel">単位</label>
         <input type="text" th:field="*{tani}" class="inputx5">
-        <label class="inpulabel">()</label>
+        <label class="inpulabel">（）</label>
       </div>
 
       <div class="inputitem">
@@ -73,10 +81,10 @@
 
     <div class="buttons">
       <div class="button1">
-        <input type="submit" formaction="Save" value="登録">
+        <input type="submit" formaction="/Save" value="登録">
       </div>
       <div class="button2">
-        <input type="submit" formaction="Delete" value="削除">
+        <input type="submit" formaction="/Delete" value="削除">
       </div>
     </div>
   </form>
