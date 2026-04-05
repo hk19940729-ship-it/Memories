@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.Entities.HINEntity;
 import com.M0001.model.M0001;
@@ -25,14 +26,18 @@ public class M0001SqlServerController {
         return "index";
     }
     
-    @GetMapping("/Search")
-    public String hello(@ModelAttribute M0001 m001,Model model) {
+    @PostMapping("/Search")
+    public String getHin(@ModelAttribute M0001 m001,Model model) {
         //model.addAttribute("title", "SQL Serverから取得したデータ");
         // 品目データの取得
     	
-    	String hincode = m001.getHINCODE();
+    		String hincode = m001.getHinCode();
         HINEntity result = M0001Service.findbyId(hincode);
-        m001.setHINNAME( result.getHINNAME());
+        
+        if(result != null) {
+        	  m001.ApplyEdit(result,true);  	
+        }
+      
         model.addAttribute("M0001", m001);
          
         //model.addAttribute("weatherDataList", weatherDataList);
@@ -40,5 +45,15 @@ public class M0001SqlServerController {
     }
     
 
+    @PostMapping("/Save")
+    public String saveHin(@ModelAttribute M0001 m001,Model model) {
+        // 品目データの登録
+    		M0001Service.saveHin(m001);
+     	model.addAttribute("M0001", m001); 
+        //model.addAttribute("weatherDataList", weatherDataList);
+        return "index";
+    }
+    
+    
     
 }

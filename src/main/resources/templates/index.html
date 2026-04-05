@@ -1,102 +1,85 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<!DOCTYPE html>
-
 <head>
-<meta charset="UTF-8">
-<link rel="stylesheet" href=".\buhmsstyle.css" type="text/css">
-<h1>フレームメモワール</h1>
-<h2>WEB販売管理画面</h2>
+  <meta charset="UTF-8">
+  <title>フレームメモワール - WEB販売管理画面</title>
+  <link rel="stylesheet" href="./buhmsstyle.css" type="text/css">
 </head>
-
 <body>
-<div>
-	<form action="Search" method="post" th:object="${M00001}">																														
-  <h3>品目マスタ保守</h3>
-  <label class="inpulabel">品目コード</label>
-  <input type="text" name="HINCODE" id="HINCODE" th:objcet="*{HINCODE}" class="inputx12">
-  <input type="submit" name="Search" value="検索"></button>
+
+  <h1>フレームメモワール</h1>
+  <h2>WEB販売管理画面</h2>
+
+  <form method="post" th:object="${M0001}">
+    <div>
+      <h3>品目マスタ保守</h3>
+      <label class="inpulabel">品目コード</label>
+      <input type="text" th:field="*{hinCode}" class="inputx12">
+      <input type="submit" formaction="Search" value="検索">
+    </div>
+
+    <hr>
+
+    <div class="left1">
+      <div class="inputitem">
+        <label class="inpulabel">品目区分</label>
+        <input type="text" th:field="*{HINbn}" class="inputx12">
+      </div>
+
+      <div class="inputitem">
+        <label class="inpulabel">品名</label>
+        <input type="text" th:field="*{hinName}" class="inputN20">
+      </div>
+
+      <div class="inputitem">
+        <label class="inpulabel"></label>
+        <input type="text" th:field="*{hinName2}" class="inputN20">
+      </div>
+
+      <div class="inputitem">
+        <label class="inpulabel">単位</label>
+        <input type="text" th:field="*{tani}" class="inputx5">
+        <label class="inpulabel">()</label>
+      </div>
+
+      <div class="inputitem">
+        <input type="text" id="NNtanka" class="inputx5" readonly>
+        <label class="inpulabel2">単価</label>
+        <input type="text" th:field="*{tanka}" class="inputx10">
+        <label class="inpulabel">（円）</label>
+      </div>
+
+      <div class="inputitem">
+        <input type="text" id="NNrt" class="inputx5" readonly>
+        <br>
+        <label class="inpulabel">リードタイム</label>
+        <input type="text" th:field="*{readTime}" class="inputx10">
+        <label class="inpulabel">（h）</label>
+      </div>
+
+      <div class="inputitem">
+        <label class="inpulabel">消費期限日数</label>
+        <input type="text" th:field="*{syohikigenDays}" class="inputx10">
+        <label class="inpulabel">（日）</label>
+      </div>
+    </div>
+
+    <div class="left2">
+      <div class="inputitem">
+        <label class="inpulabel">色コード</label>
+        <input type="text" th:field="*{colorCode}" class="inputx12">
+      </div>
+    </div>
+
+    <div class="buttons">
+      <div class="button1">
+        <input type="submit" formaction="Save" value="登録">
+      </div>
+      <div class="button2">
+        <input type="submit" formaction="Delete" value="削除">
+      </div>
+    </div>
   </form>
-</div>
-
-<hr>
-
-<div class="left1">
-<div class="inputitem">
-  <label class="inpulabel">品目区分</label>
-  <input type="text" name="hincd" id="hincd" class="inputx12">
-</div>
-
-<div class="inputitem">
-  <label class="inpulabel">品名</label>
-  <input type="text" name="hinnm" id="hinnm" class="inputN20">
-</div>
-<div class="inputitem">
-  <label class="inpulabel"></label>
-  <input type="text" name="hinnm2" id="hinnm2" class="inputN20">
-</div>
-
-<div class="inputitem">
-  <label class="inpulabel">単位</label>
-  <input type="text" name="tanni" id="tanni" class="inputx5">
-  <label class="inpulabel">()</label>
-</div>
-
-<div class="inputitem">
-  <input type="text" name="NNtanka" id="NNtanka" class="inputx5" readonly=true>
-  <label class="inpulabel2">単価</label>
-  <input type="text" name="tanka" id="tanka" class="inputx10">
-  <label class="inpulabel">（円）</label>
-
-</div>
-
-<div class="inputitem">
-  <input type="text" name="NNrt" id="NNrt" class="inputx5" readonly=true>
-  </br>
-  <label class="inpulabel">リードタイム</label>
-  <input type="text" name="tanni" id="tanni" class="inputx10">
-  <label class="inpulabel">（h）</label>
-</div>
-
-<div class="inputitem">
-  <label class="inpulabel">消費期限日数</label>
-  <input type="text" name="syohi" id="syohi" class="inputx10">
-  <label class="inpulabel">（日）</label>
-</div>
-</div>
-
-<div class="left2">
-  <div class="inputitem">
-    <label class="inpulabel">色コード</label>
-    <input type="text" name="colorcd" id="colorcd" class="inputx12">
-  </div>
-
-  <div class="inputitem">
-    <label class="inpulabel">消費期限日数</label>
-    <input type="text" name="syohikigennsu" id="syohikigennsu" class="inputx10">
-  </div>
-</div>
-
-<div class="buttons">
-  <div class="button1">
-    <input type="button" name="imsert" value="登録"></button>
-  </div>
-
-  <div class="button2">
-    <input type="button" name="Del" value="削除"></button>
-  </div>
-</div>
-
-
-
-
-
-
 
 </body>
- 
-
-
-
 </html>

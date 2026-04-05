@@ -8,45 +8,108 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "HINMS")
 public class HINEntity {
-		@Id
-		@Column(name = "HINCODE")
-	    private String HINCODE;
-		@Column(name = "HINNAME")
-	    private String HINNAME;
-		@Column(name = "HINKBN")
-	    private String HINKBN;
-		@Column(name = "TNI")
-	    private String TNI;
+	@Id
+	@Column(name = "HINCODE")
+	private String hinCode;
 
-	    public String getHINCODE() {
-	        return HINCODE;
-	    }
+	@Column(name = "HINNAME")
+	private String hinName;
 
-	    public void setHINCODE(String HINCODE) {
-	        this.HINCODE = HINCODE;
-	    }
+	@Column(name = "HINNAME2")
+	private String hinName2;
+	
+	@Column(name = "HINKBN")
+	private String hinKbn;
 
-	    public String getHINNAME() {
-	        return HINNAME;
-	    }
+	@Column(name = "TNI")
+	private String tni;
 
-	    public void setHINNAME(String HINNAME) {
-	        this.HINNAME = HINNAME;
-	    }
+	@Column(name = "TANKA")
+	private Double tanka;
 
-	    public String getHINKBN() {
-	        return HINKBN;
-	    }
+	@Column(name = "RT")
+	private Double rt;
 
-	    public void setHINKBN(String HINKBN) {
-	        this.HINKBN = HINKBN;
-	    }
+	
+	@Column(name = "SYOHIKIGENDAYS")
+	private Double syohiKigenDays;
 
-	    public String getTNI() {
-	        return TNI;
-	    }
+	@Column(name = "COLORCODE")
+	private String colorCode;		
+	
+	
+	
+	public String getHinCode() {
+	    return hinCode;
+	}
 
-	    public void setTNI(String TNI) {
-	        this.TNI = TNI;
-	    }
+	public void setHinCode(String hinCode) {
+	    this.hinCode = hinCode;
+	}
+
+	public String getHinName() {
+	    return hinName;
+	}
+
+	public void setHinName2(String hinName2) {
+	    this.hinName2 = hinName2;
+	}
+
+	public String getHinName2() {
+	    return hinName2;
+	}
+
+	public void setHinName(String hinName) {
+	    this.hinName = hinName;
+	}
+
+	public String getHinKbn() {
+	    return hinKbn;
+	}
+
+	public void setHinKbn(String hinKbn) {
+	    this.hinKbn = hinKbn;
+	}
+
+	public String getTni() {
+	    return tni;
+	}
+
+	public void setTni(String tni) {
+	    this.tni = tni;
+	}
+	
+	public Double getTanka() {
+	    return tanka;
+	}
+
+	public void setTanka(Double tanka) {
+	    this.tanka = tanka;
+	}
+
+	public Double getRt() {
+	    return rt;
+	}
+
+	public void setRt(Double rt) {
+	    this.rt = rt;
+	}
+
+	public Double getSyohiKigenDays() {
+	    return syohiKigenDays;
+	}
+
+	public void setSyohiKigenDays(Double syohiKigenDays) {
+	    this.syohiKigenDays = syohiKigenDays;
+	}
+
+	public String getColorCode() {
+	    return colorCode;
+	}
+
+	public void setColorCode(String colorCode) {
+	    this.colorCode = colorCode;
+	}
+	
+	
 }
