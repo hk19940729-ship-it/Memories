@@ -9,3 +9,4 @@ import com.Entities.HINEntity;
 @Repository
 public interface M0001Repository extends JpaRepository<HINEntity, String> {
 }
+

@@ -47,6 +47,7 @@
       <div class="inputitem">
         <label class="inpulabel">単位</label>
         <input type="text" th:field="*{tani}" class="inputx5">
+		<div th:if="${#fields.hasErrors('tani')}" th:errors="*{tani}" class="error-message"></div>
         <label class="inpulabel">（）</label>
       </div>
 

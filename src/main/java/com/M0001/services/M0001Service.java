@@ -27,6 +27,26 @@ public class M0001Service {
 		return  hinentity;
 	}
 	
+	public Boolean  existshincode(String hincode) {
+		HINEntity hinentity = M0001Repository.findById(hincode).orElse(null);
+		if(hinentity != null) {
+			return true;
+		}else
+			return false;
+	}
+	
+	
+	public Boolean  existTniCode(String tniCode) {
+		HINEntity tnientity = M0001Repository.findById(tniCode).orElse(null);
+		if(tnientity != null) {
+			return true;
+		}else
+			return false;
+	}
+	
+	
+	
+	
 	public void saveHin(M0001 m001) {
 		
 		HINEntity entity = m001.toHINEntity();

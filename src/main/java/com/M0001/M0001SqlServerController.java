@@ -45,7 +45,19 @@ public class M0001SqlServerController {
     }
 
     @PostMapping("/Save")
-    public String saveHin(@ModelAttribute("M0001") M0001 m001, Model model) {
+    public String saveHin(@ModelAttribute("M0001") M0001 m001,  BindingResult result, Model model) {
+    	if (result.hasErrors()) {
+            model.addAttribute("M0001", m001);
+            return "index";
+        }
+    	
+      	if( !M0001Service.existTniCode(m001.getTani())) {
+      		result.rejectValue("tani", "error.M0001", "単位コードが存在しません");
+      	}
+      	
+      	
+      	
+
         M0001Service.saveHin(m001);
         model.addAttribute("M0001", m001);
         return "index";
