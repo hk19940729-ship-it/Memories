@@ -1,0 +1,42 @@
+<form method="post" th:action="@{/M0000/Search}" th:object="${M0000}">
+  <div>
+    <h3>汎用マスタ保守</h3>
+    <label class="inpulabel">汎用区分</label>
+    <input type="text" th:field="*{codeKbn}" class="inputx12">
+  </div>
+
+   <div>
+    <input type="text" th:field="*{codeNm}" class="inputx12">
+  </div>
+
+  
+  <div class="left1">
+    <div class="inputitem">
+      <label class="inpulabel">汎用コード</label>
+      <input type="text" th:field="*{anyCode}" class="inputx12">
+    </div>
+  </div>
+
+  <div class="button1">
+    <button type="submit" formaction="/M0000/Search">検索</button>
+  </div>
+  
+  <hr>
+
+  <div class="left1">
+    <div class="inputitem">
+      <label class="inpulabel">項目</label>
+      <input type="text" th:field="*{item1}" class="inputx12">
+    </div>
+  </div>
+
+  <div class="buttons">
+
+    <div class="button2">
+      <button type="submit" formaction="/M0000/Save">登録</button>
+    </div>
+    <div class="button3">
+      <button type="submit" formaction="/M0000/Delete">削除</button>
+    </div>
+  </div>
+</form>

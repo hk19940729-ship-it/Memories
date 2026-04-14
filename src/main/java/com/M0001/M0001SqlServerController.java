@@ -9,12 +9,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.Entities.HINEntity;
-import com.M0001.model.M0001;
-import com.M0001.services.M0001Service;
 
 @Controller
+@RequestMapping("/M0001")
 public class M0001SqlServerController {
 
     @Autowired
@@ -23,14 +23,14 @@ public class M0001SqlServerController {
     @GetMapping("/")
     public String Index(Model model) {
         model.addAttribute("M0001", new M0001());
-        return "index";
+        return "M0001";
     }
 
     @PostMapping("/Search")
     public String getHin(@Valid @ModelAttribute("M0001") M0001 m001, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("M0001", m001);
-            return "index";
+            return "M0001";
         }
 
         String hincode = m001.getHinCode();
@@ -41,14 +41,14 @@ public class M0001SqlServerController {
         }
 
         model.addAttribute("M0001", m001);
-        return "index";
+        return "M0001";
     }
 
     @PostMapping("/Save")
     public String saveHin(@ModelAttribute("M0001") M0001 m001,  BindingResult result, Model model) {
     	if (result.hasErrors()) {
             model.addAttribute("M0001", m001);
-            return "index";
+            return "M0001";
         }
     	
       	if( !M0001Service.existTniCode(m001.getTani())) {
@@ -60,6 +60,6 @@ public class M0001SqlServerController {
 
         M0001Service.saveHin(m001);
         model.addAttribute("M0001", m001);
-        return "index";
+        return "M0001";
     }
 }

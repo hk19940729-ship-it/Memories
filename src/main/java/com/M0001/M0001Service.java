@@ -1,4 +1,4 @@
-package com.M0001.services;
+package com.M0001;
 
 import java.util.List;
 
@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.Entities.HINEntity;
-import com.M0001.model.M0001;
-import com.M0001.repository.M0001Repository;
 
 @Service
 public class M0001Service {

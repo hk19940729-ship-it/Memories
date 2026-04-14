@@ -3,6 +3,7 @@ package com.M0000;
 
 public class M0000Model {
 	private String codeKbn;
+	private String codeNm;
 	private String anyCode;
 	private String anyName;
 
@@ -420,6 +421,12 @@ public class M0000Model {
 	}
 	public void setIsNewal(Boolean isNewal) {
 		this.isNewal = isNewal;
+	}
+	public String getCodeNm() {
+		return codeNm;
+	}
+	public void setCodeNm(String codeNm) {
+		this.codeNm = codeNm;
 	}
 	
 }

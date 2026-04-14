@@ -1,4 +1,4 @@
-package com.M0001.model;
+package com.M0001;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
