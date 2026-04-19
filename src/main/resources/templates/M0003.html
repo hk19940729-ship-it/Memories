@@ -1,0 +1,48 @@
+<form method="post" th:object="${M0003}">
+	<form method="post" th:object="${M0003}">
+	  <div>
+	    <h3>>得意先マスタ保守</h3>
+	    <label class="inpulabel">	得意先コード</label>
+	    <input type="text" th:field="*{tokcode}" class="inputx12">
+	  </div>
+
+	  <div class="left1">
+	    <div class="inputitem">
+	      <label class="inpulabel">得意先名</label>
+	      <input type="text" th:field="*{tokName}" class="inputx12">
+	    </div>
+	  </div>
+
+
+	  <div class="left1">
+	    <div class="inputitem">
+	      <label class="inpulabel">TEL</label>
+	      <input type="text" th:field="*{tel}" class="inputx12">
+	    </div>
+	  </div>
+
+	  <div class="left1">
+	    <div class="inputitem">
+	      <label class="inpulabel">代表者名</label>
+	      <input type="text" th:field="*{Name}" class="inputx12">
+	    </div>
+	  </div>
+
+	  <div class="button1">
+	    <button type="submit" formaction="/M0003/Search">検索</button>
+	  </div>
+
+	  <hr>
+
+	  <div class="buttons">
+	    <div class="button2">
+	      <button type="submit" formaction="/M0003/Save">登録</button>
+	    </div>
+	    <div class="button3">
+	      <button type="submit" formaction="/M0003/Delete">削除</button>
+	    </div>
+	  </div>
+	</form>
+
+  
+</form>
