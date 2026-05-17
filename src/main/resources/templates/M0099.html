@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>フレームメモワール - WEB販売管理画面</title>
+  <link rel="stylesheet" href="/M0099.css" type="text/css">
+</head>
+<body>
+
+  <h1>フレームメモワール</h1>
+  <h2>WEB販売管理画面</h2>
+
+  <form method="post" th:object="${M0099}">
+	
+	<label>種別</label>
+	<input type="text" th:field="*{syubetu}" class="inputx12">
+			
+	
+	
+	<table class="meisai">
+		 <tr>
+	       <th>文字項目</th>
+		   <th></th>
+	       <th>数値項目 </th>
+		   <th></th>
+	     </tr>
+		 
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName1}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem1}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName1}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem1}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName2}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem2}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName2}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem2}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName3}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem3}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName3}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem3}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName4}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem4}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName4}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem4}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName5}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem5}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName5}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem5}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName6}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem6}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName6}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem6}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName7}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem7}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName7}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem7}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName8}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem8}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName8}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem8}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName9}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem9}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName9}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem9}" class="inputx12"></td>
+		 </tr>
+		 <tr>
+		     <td><input type="text" th:field="*{stringItemName10}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{stringItem10}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItemName10}" class="inputx12"></td>
+		     <td><input type="text" th:field="*{numberItem10}" class="inputx12"></td>
+		 </tr>
+		 
+	</table>
+	
+	
+	<input type="checkbox" th:field="*{checkImage}">チェック1
+	
+	
+	
+</form>
+
+</body>
+</html>
