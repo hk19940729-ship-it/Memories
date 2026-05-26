@@ -31,19 +31,26 @@ public class M0003Controller {
 	@PostMapping("/Search")
 	public String getAny(@Valid @ModelAttribute("M0003") M0003Model M0003, BindingResult result, Model model) {
 		
-				
-	TOKEntity tokentity =M0003service.findbyId(M0003.getTokcode());
+		M0003Model m = new M0003Model();
+		
+		TOKEntity tokentity =M0003service.findbyId(M0003.getTokcode());
 		if(tokentity != null) {
-		    M0003.setTokcode(tokentity.getTokcode());
-			M0003.setTokName(tokentity.getToknm());
+		    m.setTokcode(tokentity.getTokcode());
+			m.setTokName(tokentity.getToknm());
 			//M0003.setAdrress(M0003entity.getAdrress());
-			M0003.setTel(tokentity.getTel());
-			M0003.setName(tokentity.getDaihyonm());
+			m.setTel(tokentity.getTel());
+			m.setName(tokentity.getDaihyonm());
 		
+			m.setYasumimon(tokentity.getYasumi().substring(0, 1));
+			m.setYasumitue(tokentity.getYasumi().substring(1, 2));
+			m.setYasumiwed(tokentity.getYasumi().substring(2, 3));
+			m.setYasumithu(tokentity.getYasumi().substring(3, 4));
+			m.setYasumifri(tokentity.getYasumi().substring(4, 5));
+			m.setYasumisat(tokentity.getYasumi().substring(5, 6));
+			m.setYasumisun(tokentity.getYasumi().substring(6, 7));
 		
-	
 		}
-		model.addAttribute("M0003", M0003);
+		model.addAttribute("M0003", m);
 		return "M0003";
 		
 	}

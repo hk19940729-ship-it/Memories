@@ -19,19 +19,21 @@ public class M0003Service {
 	}
 
 	
-	public void saveTor(M0003Model m003) {
+	public void saveTor(M0003Model m) {
 		
 		TOKEntity entity = new TOKEntity();
-		entity.setTokcode(m003.getTokcode());
-		entity.setToknm(m003.getTokName());
-		//entity.set(m003.getAdrress());
-		entity.setTel(m003.getTel());
-		entity.setDaihyonm(m003.getName());
+		entity.setTokcode(m.getTokcode());
+		entity.setToknm(m.getTokName());
+		//entity.set(m.getAdrress());
+		entity.setTel(m.getTel());
+		entity.setDaihyonm(m.getName());
+		entity.setYasumi( m.getYasumisun() + m.getYasumimon() + m.getYasumitue() + m.getYasumiwed() + m.getYasumithu() + m.getYasumifri() + m.getYasumisat());
 				
 		
 		tokrepository.save(entity);
 		
 	}
+
 	
 	
 }

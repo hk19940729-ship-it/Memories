@@ -1,6 +1,97 @@
-.labelname{
-	
-	font-size: 20px;
-    width: 100px;
-    height: 30px;
+
+
+h1{
+	font-size: 50px;
+    font-weight: bold;
+	text-align: center;
+	color:hotpink;
+	background-color:lightpink;
+	margin-bottom: 0px;
 }
+
+h2{
+	font-size: 30px;
+    font-weight: bold;
+	text-align: center;
+	color:lime;
+	background-color:lightpink;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+h3{
+	font-size: 20px;
+    font-weight: bold;
+	text-align: center;
+	background-color:hotpink;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.loaded{
+	background-color:gainsboro;
+}
+
+.inputlabel{
+	
+	width: 120px;
+	display: inline-block;
+}
+
+.inputN10{
+	width: 150px;
+}
+
+.inputN20{	
+	width: 300px;
+}
+
+.inputN30{
+	width: 450px;
+}
+
+.inputx1{
+	width: 10px;
+}
+
+.inputx6{
+	width: 100px;
+}
+
+.inputx12{
+	width: 120px;
+}
+
+.inputx18{
+	width: 180px;
+}
+
+.inputx24{
+	width: 240px;
+}
+
+input[type="submit"] {
+    width: 100px;
+}
+
+.normalbutton{
+	background-color: steelblue;
+	border:black;
+}
+
+
+.dellbutton{
+	background-color: red;
+	border:black;
+}
+
+.left1{
+  float: left;
+  width: 40%;
+}
+
+.left2{
+  float: left;
+  width:45%;
+}
+

@@ -1,98 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>フレームメモワール - WEB販売管理画面</title>
+  <link rel="stylesheet" href="/Common.css" type="text/css">
+  <link rel="stylesheet" href="/M0002.css" type="text/css">
+</head>
+
+<body>
+<h1 class="systemtitle">フレームメモワール</h1>
+<h2>WEB販売管理画面</h2>
+
+
 <form method="post" th:object="${M0002}">
-	<div>
-	  <h3>取引先マスタ保守</h3>
-	  <label class="inpulabel">取引先コード</label>
-	  <input type="text" th:field="*{torCode}" class="inputx12">
-	</div>
+	<div class="loaded">
+  <h3>取引先マスタ保守</h3>
 
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">取引先名</label>
-	    <input type="text" th:field="*{torName}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">TEL</label>
-	    <input type="text" th:field="*{tel}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">代表者名</label>
-	    <input type="text" th:field="*{daihyoName}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">月</label>
-	    <input type="text" th:field="*{yasumimon}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">火</label>
-	    <input type="text" th:field="*{yasumitue}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">水</label>
-	    <input type="text" th:field="*{yasumiwed}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">木</label>
-	    <input type="text" th:field="*{yasumithu}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">金</label>
-	    <input type="text" th:field="*{yasumifri}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">土</label>
-	    <input type="text" th:field="*{yasumisat}" class="inputx12">
-	  </div>
-	</div>
-
-	<div class="left1">
-	  <div class="inputitem">
-	    <label class="inpulabel">日</label>
-	    <input type="text" th:field="*{yasumisun}" class="inputx12">
-	  </div>
-	</div>
-
-
-  
-  
-  <div class="button1">
+  <div class="keyinputs">
+    <label class="inputlabel">取引先コード</label>
+    <input type="text" th:field="*{torCode}" class="inputx12">
     <button type="submit" formaction="/M0002/Search">検索</button>
   </div>
+
+  <hr>
   
+  <div class="inputitem">
+    <label class="inputlabel">取引先名</label>
+    <input type="text" th:field="*{torName}" class="inputN20">
+  </div>
+  
+  <div class="inputitem">
+    <label class="inputlabel">住所</label>
+    <input type="text" th:field="*{adrress1}" class="inputN30">
+  </div>
+
+  <div class="inputitem">
+    <label class="inputlabel"></label>
+    <input type="text" th:field="*{adrress2}" class="inputN30">
+  </div>
+
+  <div class="inputitem">
+    <label class="inputlabel">TEL</label>
+    <input type="text" th:field="*{tel}" class="inputN10">
+  </div>
+
+  <div class="inputitem">
+    <label class="inputlabel">代表者</label>
+    <input type="text" th:field="*{daihyoName}" class="inputN10">
+  </div>
+
+  <div class="inputitem">
+    <label class="inputlabel">休日</label>
+    <input type="text" th:field="*{yasumisun}" class="inputx1">
+    <input type="text" th:field="*{yasumimon}" class="inputx1">
+    <input type="text" th:field="*{yasumitue}" class="inputx1">
+    <input type="text" th:field="*{yasumiwed}" class="inputx1">
+    <input type="text" th:field="*{yasumithu}" class="inputx1">
+    <input type="text" th:field="*{yasumifri}" class="inputx1">
+    <input type="text" th:field="*{yasumisat}" class="inputx1">
+  </div>
+
   <hr>
 
-
-
   <div class="buttons">
-
-    <div class="button2">
-      <button type="submit" formaction="/M0002/Save">登録</button>
-    </div>
-    <div class="button3">
-      <button type="submit" formaction="/M0002/Delete">削除</button>
-    </div>
+    <input type="submit" class="normalbutton" formaction="/M0002/Save" value="登録">
+    <input type="submit" class="dellbutton" formaction="/M0002/Delete" value="削除">
   </div>
+
+ </div>
 </form>
+
+
+</body>
+</html>

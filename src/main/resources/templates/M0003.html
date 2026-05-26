@@ -1,48 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>フレームメモワール - WEB販売管理画面</title>
+  <link rel="stylesheet" href="/Common.css" type="text/css">
+  <link rel="stylesheet" href="/M0003.css" type="text/css">
+</head>
+
+<body>
+<h1 class="systemtitle">フレームメモワール</h1>
+<h2>WEB販売管理画面</h2>
+
+
 <form method="post" th:object="${M0003}">
-	<form method="post" th:object="${M0003}">
-	  <div>
-	    <h3>>得意先マスタ保守</h3>
-	    <label class="inpulabel">	得意先コード</label>
-	    <input type="text" th:field="*{tokcode}" class="inputx12">
-	  </div>
+   <div class="loaded">
+  	<h3>得意先マスタ保守</h3>
+  	  <div class="keyinputs">
 
-	  <div class="left1">
-	    <div class="inputitem">
-	      <label class="inpulabel">得意先名</label>
-	      <input type="text" th:field="*{tokName}" class="inputx12">
-	    </div>
-	  </div>
-
-
-	  <div class="left1">
-	    <div class="inputitem">
-	      <label class="inpulabel">TEL</label>
-	      <input type="text" th:field="*{tel}" class="inputx12">
-	    </div>
-	  </div>
-
-	  <div class="left1">
-	    <div class="inputitem">
-	      <label class="inpulabel">代表者名</label>
-	      <input type="text" th:field="*{Name}" class="inputx12">
-	    </div>
-	  </div>
-
-	  <div class="button1">
+  	    <label class="inputlabel">	得意先コード</label>
+  	    <input type="text" th:field="*{tokcode}" class="inputx12">
 	    <button type="submit" formaction="/M0003/Search">検索</button>
-	  </div>
+  	  </div>
 
 	  <hr>
+	  
+  	  <div class="">
+  	    <div class="inputitem">
+  	      <label class="inputlabel">得意先名</label>
+  	      <input type="text" th:field="*{tokName}" class="inputx12">
+  	    </div>
+  	  </div>
+	  
+  	  <div class="">
+  	    <div class="inputitem">
+  	      <label class="inputlabel">TEL</label>
+  	      <input type="text" th:field="*{tel}" class="inputx12">
+  	    </div>
+  	  </div>
 
-	  <div class="buttons">
-	    <div class="button2">
-	      <button type="submit" formaction="/M0003/Save">登録</button>
-	    </div>
-	    <div class="button3">
-	      <button type="submit" formaction="/M0003/Delete">削除</button>
-	    </div>
-	  </div>
-	</form>
+  	  <div class="">
+  	    <div class="inputitem">
+  	      <label class="inputlabel">代表者名</label>
+  	      <input type="text" th:field="*{Name}" class="inputx12">
+  	    </div>
+  	  </div>
 
+ 	 <div class="inputitem">
+   	    <label class="inputlabel">休日</label>
+   		<input type="text" th:field="*{yasumisun}" class="inputx1">
+	    <input type="text" th:field="*{yasumimon}" class="inputx1">
+	    <input type="text" th:field="*{yasumitue}" class="inputx1">
+	    <input type="text" th:field="*{yasumiwed}" class="inputx1">
+	    <input type="text" th:field="*{yasumithu}" class="inputx1">
+	    <input type="text" th:field="*{yasumifri}" class="inputx1">
+	    <input type="text" th:field="*{yasumisat}" class="inputx1">
+  </div>
   
+  <br>
+  <hr>
+  
+  <div class="buttons">
+    <input type="submit" class="normalbutton" formaction="/M0003/Save" value="登録">
+    <input type="submit" class="dellbutton" formaction="/M0003/Delete" value="削除">
+  </div>
+
 </form>
+
+</body>
+
+</html>
+

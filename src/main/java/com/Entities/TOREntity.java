@@ -15,6 +15,9 @@ public class TOREntity {
 
     @Column(name = "TORNM", length = 20)
     private String torNm;
+    
+    @Column(name = "Address", length = 60)
+    private String addrress;
 
     @Column(name = "TEL", length = 10)
     private String tel;
@@ -43,7 +46,14 @@ public class TOREntity {
     public void setTorNm(String torNm) {
         this.torNm = torNm;
     }
+    
+    public String getAddrressNm() {
+        return addrress;
+    }
 
+    public void setAddrressNm(String addrress) {
+        this.addrress = addrress;
+    }
     public String getTel() {
         return tel;
     }
@@ -65,7 +75,7 @@ public class TOREntity {
     }
 
     public void setYasumi(String yasumi) {
-        this.yasumi = yasumi;
+    	 this.yasumi = yasumi;
     }
 
 }

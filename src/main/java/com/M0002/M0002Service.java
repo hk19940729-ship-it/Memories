@@ -19,26 +19,25 @@ public class M0002Service {
 	}
 
 	
-	public void saveTor(M0002Model m002) {
-		
-		TOREntity entity = new TOREntity();
-		entity.setTorCode(m002.getTorCode());
-		entity.setTorNm(m002.getTorName());
-		//entity.setAdrress(m002.getAdrress());
-		entity.setTel(m002.getTel());
-		entity.setDaihyoNm(m002.getDaihyoName());
-		entity.setYasumi(m002.getYasumimon() + 
-				m002.getYasumitue() + 
-				m002.getYasumiwed() + 
-				m002.getYasumithu() + 
-				m002.getYasumifri() + 
-				m002.getYasumisat() + 
-				m002.getYasumisun()
-);
+	public void saveTor(M0002Model m) {
 		
 		
-		torrepository.save(entity);
+		 TOREntity torentity = new TOREntity();
+		 torentity.setTorCode(m.getTorCode());
+		 torentity.setTorNm(m.getTorName());
+		 torentity.setAddrressNm(String.format("%-30s",m.getAdrress1()) + String.format("%-30s",m.getAdrress2()));
+		 torentity.setTel(m.getTel());
+		 torentity.setDaihyoNm(m.getDaihyoName());
+		 torentity.setYasumi( m.getYasumisun() + m.getYasumimon() + m.getYasumitue() + m.getYasumiwed() + m.getYasumithu() + m.getYasumifri() + m.getYasumisat());
 		
+		
+		torrepository.save(torentity);
+		
+	}
+	
+	public void deleteTor(M0002Model  m) 
+	{	
+		torrepository.deleteById(m.getTorCode());
 	}
 	
 	

@@ -3,7 +3,8 @@ package com.M0002;
 public class M0002Model{
 private String torCode;
 private String torName;
-private String adrress;
+private String adrress1;
+private String adrress2;
 private String tel;
 private String daihyoName;
 private String yasumimon;
@@ -30,12 +31,20 @@ public void setTorName(String torName) {
     this.torName = torName;
 }
 
-public String getAdrress() {
-    return adrress;
+public String getAdrress1() {
+    return adrress1;
 }
 
-public void setAdrress(String adrress) {
-    this.adrress = adrress;
+public void setAdrress1(String adrress1) {
+    this.adrress1 = adrress1;
+}
+
+public String getAdrress2() {
+    return adrress2;
+}
+
+public void setAdrress2(String adrress2) {
+    this.adrress2 = adrress2;
 }
 
 public String getTel() {

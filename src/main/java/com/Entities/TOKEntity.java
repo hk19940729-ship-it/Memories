@@ -22,6 +22,8 @@ public class TOKEntity {
     @Column(name = "DAIHYONM", length = 20)
     private String daihyonm;
 
+    @Column(name = "YASUMI", length = 7)
+    private String yasumi;
 
     // ゲッターとセッター
     public String getTokcode() {
@@ -54,5 +56,13 @@ public class TOKEntity {
 
     public void setDaihyonm(String daihyonm) {
         this.daihyonm = daihyonm;
+    }
+    
+    public String getYasumi() {
+        return yasumi;
+    }
+
+    public void setYasumi(String yasumi) {
+    	 this.yasumi = yasumi;
     }
 }
