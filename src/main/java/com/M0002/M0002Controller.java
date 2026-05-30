@@ -30,31 +30,31 @@ public class M0002Controller {
 	
 	@PostMapping("/Search")
 	public String getAny(@Valid @ModelAttribute("M0002") M0002Model m0002, BindingResult result, Model model) {
+		M0002Model resultmodel = new M0002Model();
 		
-				
-	TOREntity torentity =m0002service.findbyId(m0002.getTorCode());
+		resultmodel.setTorCode(m0002.getTorCode());
+		
+	    TOREntity torentity =m0002service.findbyId(m0002.getTorCode());
 		if(torentity != null) {
-		    m0002.setTorCode(torentity.getTorCode());
-			m0002.setTorName(torentity.getTorNm());
+			resultmodel.setTorName(torentity.getTorNm());
 			String addressnm =String.format("%-60s",(torentity.getAddrressNm() != null) ? torentity.getAddrressNm() : "");
-			m0002.setAdrress1(addressnm.substring(0, 29).trim());
-			m0002.setAdrress2(addressnm.substring(29, 59).trim());
-			m0002.setTel(torentity.getTel());
-			m0002.setDaihyoName(torentity.getDaihyoNm());
-		
+			resultmodel.setAdrress1(addressnm.substring(0, 29).trim());
+			resultmodel.setAdrress2(addressnm.substring(29, 59).trim());
+			resultmodel.setTel(torentity.getTel());
+			resultmodel.setDaihyoName(torentity.getDaihyoNm());
 			
 			if(torentity.getYasumi() != null && torentity.getYasumi().length() ==7) {
-				m0002.setYasumimon(torentity.getYasumi().substring(0, 1));
-				m0002.setYasumitue(torentity.getYasumi().substring(1, 2));
-				m0002.setYasumiwed(torentity.getYasumi().substring(2, 3));
-				m0002.setYasumithu(torentity.getYasumi().substring(3, 4));
-				m0002.setYasumifri(torentity.getYasumi().substring(4, 5));
-				m0002.setYasumisat(torentity.getYasumi().substring(5, 6));
-				m0002.setYasumisun(torentity.getYasumi().substring(6, 7));
+				resultmodel.setYasumimon(torentity.getYasumi().substring(0, 1));
+				resultmodel.setYasumitue(torentity.getYasumi().substring(1, 2));
+				resultmodel.setYasumiwed(torentity.getYasumi().substring(2, 3));
+				resultmodel.setYasumithu(torentity.getYasumi().substring(3, 4));
+				resultmodel.setYasumifri(torentity.getYasumi().substring(4, 5));
+				resultmodel.setYasumisat(torentity.getYasumi().substring(5, 6));
+				resultmodel.setYasumisun(torentity.getYasumi().substring(6, 7));
 			} 			
 	
 		}
-		model.addAttribute("M0002", m0002);
+		model.addAttribute("M0002", resultmodel);
 		return "M0002";
 		
 	}
@@ -75,11 +75,8 @@ public class M0002Controller {
 			model.addAttribute("M0002", m);
 			return "M0002";
 		}
-		
-		M0002Model m0002 = new M0002Model();
-		model.addAttribute("M0002", m0002);
 		 
-		return "M0002";
+		return "redirect:/M0002/";
 	}
 		
 	@PostMapping("/Delete")
@@ -98,9 +95,7 @@ public class M0002Controller {
 			return  "M0002";
 		}
 		
-		M0002Model m0002 = new M0002Model();
-		model.addAttribute("M0002", m);
-		return "M0002";
+		return "redirect:/M0002/";
 	}
 		
 		

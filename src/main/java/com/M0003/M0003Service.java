@@ -28,12 +28,16 @@ public class M0003Service {
 		entity.setTel(m.getTel());
 		entity.setDaihyonm(m.getName());
 		entity.setYasumi( m.getYasumisun() + m.getYasumimon() + m.getYasumitue() + m.getYasumiwed() + m.getYasumithu() + m.getYasumifri() + m.getYasumisat());
-				
 		
 		tokrepository.save(entity);
 		
 	}
-
+	
+	public void deleteTok(M0003Model  m) 
+	{	
+		tokrepository.deleteById(m.getTokcode());
+	}
+	
 	
 	
 }

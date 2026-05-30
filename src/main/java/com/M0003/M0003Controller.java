@@ -32,7 +32,7 @@ public class M0003Controller {
 	public String getAny(@Valid @ModelAttribute("M0003") M0003Model M0003, BindingResult result, Model model) {
 		
 		M0003Model m = new M0003Model();
-		
+		m.setTokcode(M0003.getTokcode());
 		TOKEntity tokentity =M0003service.findbyId(M0003.getTokcode());
 		if(tokentity != null) {
 		    m.setTokcode(tokentity.getTokcode());
@@ -41,14 +41,15 @@ public class M0003Controller {
 			m.setTel(tokentity.getTel());
 			m.setName(tokentity.getDaihyonm());
 		
-			m.setYasumimon(tokentity.getYasumi().substring(0, 1));
-			m.setYasumitue(tokentity.getYasumi().substring(1, 2));
-			m.setYasumiwed(tokentity.getYasumi().substring(2, 3));
-			m.setYasumithu(tokentity.getYasumi().substring(3, 4));
-			m.setYasumifri(tokentity.getYasumi().substring(4, 5));
-			m.setYasumisat(tokentity.getYasumi().substring(5, 6));
-			m.setYasumisun(tokentity.getYasumi().substring(6, 7));
-		
+			if(tokentity.getYasumi() != null && tokentity.getYasumi().length() ==7) {
+				m.setYasumimon(tokentity.getYasumi().substring(0, 1));
+				m.setYasumitue(tokentity.getYasumi().substring(1, 2));
+				m.setYasumiwed(tokentity.getYasumi().substring(2, 3));
+				m.setYasumithu(tokentity.getYasumi().substring(3, 4));
+				m.setYasumifri(tokentity.getYasumi().substring(4, 5));
+				m.setYasumisat(tokentity.getYasumi().substring(5, 6));
+				m.setYasumisun(tokentity.getYasumi().substring(6, 7));
+			}
 		}
 		model.addAttribute("M0003", m);
 		return "M0003";
@@ -58,13 +59,45 @@ public class M0003Controller {
 	@PostMapping("/Save")
 	public String SaveAny(@Valid @ModelAttribute("M0003") M0003Model m, BindingResult result, Model model) {
 		
-		
-		M0003service.saveTor(m);
-		
 		 M0003Model M0003 = new M0003Model();
+		 M0003.setTokcode(m.getTokcode());
 
+		try {
+			
+			M0003service.saveTor(m);
+		
+		}
+		catch(Exception e) {
+			// エラーハンドリング
+			result.reject("error.saving", "データの保存中にエラーが発生しました。");
+			
+			model.addAttribute("M0003", m);
+			return "M0003";
+		}
+		 
 		model.addAttribute("M0003", M0003);
-		return "M0003";
+		
+		return "redirect:/M0003/";
+
+	}
+	
+	@PostMapping("/Delete")
+	public String Delete(@Valid @ModelAttribute("M0003") M0003Model m, BindingResult result, Model model) {
+		
+		try {
+			
+		 M0003service.deleteTok(m);
+		
+		}
+		catch(Exception e) {
+			// エラーハンドリング
+			result.reject("error.deleting", "データの削除中にエラーが発生しました。");
+			
+			model.addAttribute("M0003", m);
+			return  "M0003";
+		}
+		
+		return "redirect:/M0003/";
 	}
 	
 	
