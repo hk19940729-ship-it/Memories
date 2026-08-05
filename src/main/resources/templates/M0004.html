@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>フレームメモワール - WEB販売管理画面</title>
+  <link rel="stylesheet" href="/Common.css" type="text/css">
+  <link rel="stylesheet" href="/M0004.css" type="text/css">
+</head>
+
+<body>
+<h1 class="systemtitle">フレームメモワール</h1>
+<h2>WEB販売管理画面</h2>
+
+
+<form method="post" th:object="${M0004}">
+   <div class="loaded">
+  	<h3>生産計画</h3>
+  	  <div="keyinputs">
+		<label class="inputlabel">	年月日</label>
+		<input type="date" th:field="*{ymd}" class="inputx12">
+		<button type="submit" formaction="/M0004/Search">検索</button>
+	  </div>
+	  
+	  <table>
+		<thead>
+			<tr >
+				<td th:each="detailhead : ${DetailHeadList}" th:text="${detailhead.day}"></td>
+			</tr>
+				
+		</thead>
+		
+		<tbody>
+		<tr th:each="detail : ${DetailList}">
+			
+			<td th:text="${detail.hincode}"></td>
+			<td th:text="${detail.genZaiko}"></td>
+			<!--<td th:text="${detail.shohiYotei}"></td>
+			<td th:text="${detail.zaikoYotei}"></td> -->
+			<td th:text="${detail.nenKeiSu}"></td>
+			<td th:text="${detail.nenJisSu}"></td>
+			<td th:text="${detail.syuKeiSu}"></td>
+			<td th:text="${detail.syuJisSu}"></td>
+			
+			<th:block th:each="cell : ${detail.cellList}">
+			    <td th:text="${cell.hiKeiSu}"></td>
+			    <td th:text="${cell.hiJiSu}"></td>
+			    <td th:text="${cell.yojiSai}"></td>
+			</th:block>
+			
+			
+		</tr>
+		
+		
+		
+
+		</tbody>
+	  </table>
+	  
+	  
+	  
+   </div>
+
+   <hr>
+  
+</form>
+
+</body>
+
+</html>
