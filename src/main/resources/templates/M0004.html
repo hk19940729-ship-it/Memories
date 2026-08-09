@@ -5,6 +5,7 @@
   <title>フレームメモワール - WEB販売管理画面</title>
   <link rel="stylesheet" href="/Common.css" type="text/css">
   <link rel="stylesheet" href="/M0004.css" type="text/css">
+
 </head>
 
 <body>
@@ -21,40 +22,82 @@
 		<button type="submit" formaction="/M0004/Search">検索</button>
 	  </div>
 	  
-	  <table>
-		<thead>
-			<tr >
-				<td th:each="detailhead : ${DetailHeadList}" th:text="${detailhead.day}"></td>
-			</tr>
+	  <div class="scroll-box">
+		<table  cellspacing="0">
+				<thead>
+					<tr>
+						<td class="dtailwidth">明細／日付</td>
+						<th th:each="detailhead : ${DetailHeadList}">
+					    <div><input type="text" th:name="${detailhead.day}" th:value="${detailhead.day}"  readonly="readonly" class="readonlyinput"> </div>
+						</th>
+					</tr>
+						
+				</thead>
 				
-		</thead>
-		
-		<tbody>
-		<tr th:each="detail : ${DetailList}">
-			
-			<td th:text="${detail.hincode}"></td>
-			<td th:text="${detail.genZaiko}"></td>
-			<!--<td th:text="${detail.shohiYotei}"></td>
-			<td th:text="${detail.zaikoYotei}"></td> -->
-			<td th:text="${detail.nenKeiSu}"></td>
-			<td th:text="${detail.nenJisSu}"></td>
-			<td th:text="${detail.syuKeiSu}"></td>
-			<td th:text="${detail.syuJisSu}"></td>
-			
-			<th:block th:each="cell : ${detail.cellList}">
-			    <td th:text="${cell.hiKeiSu}"></td>
-			    <td th:text="${cell.hiJiSu}"></td>
-			    <td th:text="${cell.yojiSai}"></td>
-			</th:block>
-			
-			
-		</tr>
-		
-		
-		
+				<tbody>
+				<tr th:each="detail : ${DetailList}">
+				
+					<td class="detail">
+					<table>
+					<tr>
+						<td>品目</td>
+						<td><div><input type="text" th:name="${detail.hincode}" th:value="${detail.hincode}" class="inputx6"></div></td>
+					</tr>				
+						
+					<tr>
+						<td>現在庫数</td>
+						<td th:text="${detail.genZaiko}"></td>
+						<td>年次計画数</td>
+						<td th:text="${detail.nenKeiSu}"></td>
+					</tr>
+					<tr>
+						<td>消費予定数</td>
+						<td th:text="${detail.shohiYotei}"></td>
+						<td>年次実績数</td>
+						<td th:text="${detail.nenJisSu}"></td>
+					</tr>
+					<tr>
+						<td>在庫予定数</td>
+						<td th:text="${detail.zaikoYotei}"></td>
+						<td>週次計画数</td>
+						<td th:text="${detail.syuKeiSu}"></td>
+					 </tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>週次実績数</td>
+						<td th:text="${detail.syuJisSu}"></td>
+					</tr>
+					</table>
+					</td>
 
-		</tbody>
-	  </table>
+					
+
+					<td th:each="cell : ${detail.cellList}" class="cell">	
+						<table>
+							<tr>
+								<td>日次計画数</td>
+					    		<td><div><input name="${cell.hiKeiSu}" text="${cell.hiKeiSu}" class="inputx6" ></div></td>
+							</tr>
+							<tr>
+								<td>日次実績数</td>
+								<td th:text="${cell.hiJiSu}"></td>
+							</tr>
+							<tr>
+								<td>予実差異</td>
+								<td th:text="${cell.yojiSai}"></td>
+							</tr>
+						</table>					
+					</td>
+			
+				</tr>
+
+				</tbody>
+		</table>
+		
+		
+	  </div>
+	  
 	  
 	  
 	  
