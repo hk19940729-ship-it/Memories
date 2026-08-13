@@ -46,7 +46,7 @@ public class M0004Model {
 					          .findFirst()
 					          .orElse(null);
 				if (item != null) {
-					cell.apply(item.getKeisu(), item.getJissu());
+					cell.apply(dayslist.get(j).getDay().toString(),item.getKeisu(), item.getJissu());
 				}
 				detail.getCellList().add(cell);
 			}
